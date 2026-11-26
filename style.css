@@ -1,0 +1,847 @@
+
+/* =========================
+   1. GLOBAL STYLES
+========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --background: #090b18;
+    --surface: #111427;
+    --card: #151a30;
+    --primary: #9575ff;
+    --secondary: #b69aff;
+    --white: #ffffff;
+    --muted: #a2a7bd;
+    --border: rgba(255,255,255,0.09);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 85px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--background);
+    color: var(--white);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: min(1120px, 90%);
+    margin: auto;
+}
+
+.section-padding {
+    padding: 100px 0;
+}
+
+.tag {
+    display: inline-block;
+    color: var(--secondary);
+    background: rgba(149,117,255,0.12);
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+/* =========================
+   2. NAVIGATION - FLEXBOX
+========================= */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(9,11,24,0.94);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    min-height: 76px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+}
+
+.nav-links a {
+    font-size: 13px;
+    color: var(--muted);
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--white);
+}
+
+.nav-links .nav-button {
+    background: var(--primary);
+    color: white;
+    padding: 11px 19px;
+    border-radius: 8px;
+}
+
+.nav-button:hover {
+    background: #8060ee;
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* =========================
+   3. HERO SECTION - FLEXBOX
+========================= */
+
+.hero {
+    padding: 100px 0 90px;
+    overflow: hidden;
+    background:
+        radial-gradient(ellipse at 80% 40%,
+        rgba(107,73,215,0.17), transparent 45%);
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: clamp(42px, 5.5vw, 66px);
+    line-height: 1.12;
+    letter-spacing: -2.5px;
+    margin: 23px 0;
+}
+
+.hero-text h1 span,
+.section-heading h2 span,
+.about-text h2 span,
+.cta h2 span {
+    background: linear-gradient(90deg, #a88aff, #e0b4ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero-text > p {
+    color: var(--muted);
+    max-width: 480px;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 22px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.primary-btn {
+    background: var(--primary);
+    color: white;
+}
+
+.primary-btn:hover {
+    background: #8060ee;
+    transform: translateY(-3px);
+}
+
+.secondary-btn {
+    border: 1px solid var(--border);
+    color: white;
+}
+
+.secondary-btn:hover {
+    border-color: var(--primary);
+}
+
+.hero-rating {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.avatars {
+    display: flex;
+}
+
+.avatars span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    margin-right: -8px;
+    border: 2px solid var(--background);
+    border-radius: 50%;
+    background: #7657b8;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.avatars span:nth-child(2) {
+    background: #387a92;
+}
+
+.avatars span:nth-child(3) {
+    background: #a85c8d;
+}
+
+.hero-rating strong {
+    font-size: 12px;
+}
+
+.hero-rating p {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+/* =========================
+   4. DASHBOARD VISUAL
+========================= */
+
+.hero-visual {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    padding: 20px 0;
+}
+
+.dashboard {
+    background: #151a30;
+    border: 1px solid rgba(180,155,255,0.2);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.3);
+    transform: rotate(2deg);
+}
+
+.dashboard-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.small-label {
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.dashboard-top h3 {
+    font-size: 19px;
+    margin-top: 5px;
+}
+
+.profile {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    background: var(--primary);
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.dashboard-card {
+    background: #1c2240;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.dashboard-card p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.dashboard-card h2 {
+    font-size: 30px;
+    margin: 8px 0;
+}
+
+.growth {
+    color: #64dba1;
+    font-size: 11px;
+}
+
+.chart {
+    height: 110px;
+    display: flex;
+    align-items: end;
+    justify-content: space-around;
+    gap: 12px;
+    margin-top: 18px;
+    border-bottom: 1px solid var(--border);
+}
+
+.chart span {
+    flex: 1;
+    background: linear-gradient(180deg, #b69aff, #7151d6);
+    border-radius: 5px 5px 0 0;
+}
+
+.dashboard-bottom {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.mini-card {
+    flex: 1;
+    background: #1c2240;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.mini-card span,
+.mini-card small {
+    display: block;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.mini-card strong {
+    display: block;
+    font-size: 22px;
+    margin: 5px 0;
+}
+
+.mini-card small {
+    color: #64dba1;
+}
+
+.floating-card {
+    position: absolute;
+    bottom: -5px;
+    left: -35px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: #242746;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.floating-card > span {
+    color: #f4c66c;
+    font-size: 24px;
+}
+
+.floating-card strong,
+.floating-card small {
+    display: block;
+}
+
+.floating-card strong {
+    font-size: 11px;
+}
+
+.floating-card small {
+    font-size: 9px;
+    color: var(--muted);
+}
+
+/* =========================
+   5. STATISTICS - CSS GRID
+========================= */
+
+.stats {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 35px 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    text-align: center;
+}
+
+.stats-grid h2 {
+    font-size: 30px;
+    color: var(--secondary);
+}
+
+.stats-grid p {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* =========================
+   6. FEATURES - CSS GRID
+========================= */
+
+.section-heading {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 50px;
+}
+
+.section-heading h2 {
+    font-size: 42px;
+    line-height: 1.2;
+    margin: 18px 0;
+}
+
+.section-heading > p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.feature-card {
+    padding: 30px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-7px);
+    border-color: rgba(149,117,255,0.5);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.feature-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.purple { background: rgba(149,117,255,0.18); color: #b69aff; }
+.blue { background: rgba(73,160,255,0.15); color: #69b5ff; }
+.pink { background: rgba(255,100,180,0.15); color: #ff82c2; }
+.green { background: rgba(75,215,155,0.15); color: #64dba1; }
+.orange { background: rgba(255,170,80,0.15); color: #ffb568; }
+.cyan { background: rgba(75,215,230,0.15); color: #67d9e7; }
+
+.feature-card h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.feature-card p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.feature-card a {
+    color: var(--secondary);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* =========================
+   7. ABOUT SECTION - FLEXBOX
+========================= */
+
+.about {
+    background: var(--surface);
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    gap: 75px;
+}
+
+.about-visual,
+.about-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.about-box {
+    min-height: 330px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #6546bd, #241b50);
+}
+
+.about-symbol {
+    font-size: 70px;
+    font-weight: 800;
+    color: rgba(255,255,255,0.3);
+}
+
+.about-box h3 {
+    font-size: 32px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.about-box p {
+    max-width: 260px;
+    font-size: 13px;
+    color: #e0d8ff;
+}
+
+.about-decoration {
+    position: absolute;
+    right: -5px;
+    bottom: -75px;
+    font-size: 200px;
+    color: rgba(255,255,255,0.08);
+}
+
+.about-text h2 {
+    font-size: 37px;
+    line-height: 1.25;
+    margin: 20px 0;
+}
+
+.about-text > p {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 22px;
+}
+
+.about-text ul {
+    list-style: none;
+    margin-bottom: 28px;
+}
+
+.about-text li {
+    font-size: 13px;
+    margin: 12px 0;
+}
+
+/* =========================
+   8. CALL TO ACTION
+========================= */
+
+.cta {
+    text-align: center;
+    background:
+        radial-gradient(ellipse at center,
+        rgba(116,82,213,0.2), transparent 70%);
+}
+
+.cta h2 {
+    font-size: 40px;
+    line-height: 1.25;
+    margin: 22px 0 12px;
+}
+
+.cta p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+
+/* =========================
+   9. FOOTER - FLEXBOX
+========================= */
+
+.footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 0;
+    background: var(--surface);
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-content p,
+.footer-content > a:last-child {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.footer-content > a:last-child:hover {
+    color: var(--secondary);
+}
+
+/* =========================
+   10. TABLET RESPONSIVENESS
+========================= */
+
+@media (max-width: 900px) {
+
+    .hero-content {
+        gap: 30px;
+    }
+
+    .hero-text h1 {
+        font-size: 48px;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-content {
+        gap: 35px;
+    }
+
+    .about-text h2 {
+        font-size: 30px;
+    }
+
+    .floating-card {
+        left: -10px;
+    }
+}
+
+/* =========================
+   11. MOBILE RESPONSIVENESS
+========================= */
+
+@media (max-width: 650px) {
+
+    .container {
+        width: 90%;
+    }
+
+    .section-padding {
+        padding: 70px 0;
+    }
+
+    /* Mobile Navigation */
+
+    .navbar {
+        min-height: 68px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        width: 100%;
+        padding: 25px 5%;
+        background: #111427;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* Mobile Hero */
+
+    .hero {
+        padding: 65px 0;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 45px;
+    }
+
+    .hero-text h1 {
+        font-size: clamp(39px, 11vw, 52px);
+        letter-spacing: -1.5px;
+    }
+
+    .hero-text > p {
+        font-size: 13px;
+    }
+
+    .hero-buttons {
+        gap: 10px;
+    }
+
+    .btn {
+        padding: 12px 15px;
+        font-size: 12px;
+    }
+
+    .hero-visual {
+        width: 100%;
+        padding: 10px 0 25px;
+    }
+
+    .dashboard {
+        padding: 17px;
+        transform: none;
+    }
+
+    .dashboard-card h2 {
+        font-size: 25px;
+    }
+
+    .floating-card {
+        left: 5px;
+        bottom: -10px;
+    }
+
+    /* Mobile Statistics */
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 30px;
+    }
+
+    .stats-grid h2 {
+        font-size: 25px;
+    }
+
+    /* Mobile Features */
+
+    .section-heading h2 {
+        font-size: 34px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .feature-card {
+        padding: 25px;
+    }
+
+    /* Mobile About */
+
+    .about-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 40px;
+    }
+
+    .about-box {
+        min-height: 280px;
+    }
+
+    .about-text h2 {
+        font-size: 32px;
+    }
+
+    /* Mobile CTA */
+
+    .cta h2 {
+        font-size: 32px;
+    }
+
+    /* Mobile Footer */
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+}
+
+/* =========================
+   12. SMALL MOBILE DEVICES
+========================= */
+
+@media (max-width: 380px) {
+
+    .hero-text h1 {
+        font-size: 37px;
+    }
+
+    .dashboard {
+        padding: 12px;
+    }
+
+    .dashboard-bottom {
+        gap: 8px;
+    }
+
+    .mini-card {
+        padding: 10px;
+    }
+
+    .mini-card strong {
+        font-size: 18px;
+    }
+
+    .hero-buttons {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .hero-buttons .btn {
+        text-align: center;
+    }
+}
